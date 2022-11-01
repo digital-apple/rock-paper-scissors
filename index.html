@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock, Paper & Scissors</title>
+</head>
+<body>
+
+    <script>
+
+        let playerScore = 0;
+        let computerScore = 0;
+        let draws = 0;
+
+        function countScore() {
+            if (playerScore === computerScore) {
+                return "The match ended up with a draw! | Player Score: " +
+                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws ;
+            } else {
+                return playerScore > computerScore ? 
+                "The Player won the match! | Player Score: " + 
+                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws :
+                "The Computer won the match! | Player Score: " +
+                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws ;
+            }
+            playerScore = 0;
+            computerScore = 0;
+            draws = 0;
+        }
+
+        function getComputerChoice() {
+            const choices = ["ROCK", "PAPER", "SCISSORS"];
+            return choices[Math.floor(Math.random() * 3)];
+        }
+
+        function playRound(playerChoice, computerChoice) {
+
+            console.log("Player chose " + playerChoice + " ||| Computer chose " + computerChoice)
+
+            if (playerChoice === computerChoice) {
+                return (draws++, "Draw!");
+            } else if (playerChoice === "ROCK") {
+                return (computerChoice === "PAPER" ? (computerScore++, "You Lose! Paper beats Rock") : (playerScore++, "You Win! Rock beats Scissors"));
+            } else if (playerChoice === "PAPER") {
+                return (computerChoice === "SCISSORS" ? (computerScore++, "You Lose! Scissors beats Paper") : (playerScore++, "You Win! Paper beats Rock"));
+            } else {
+                return (computerChoice === "ROCK" ? (computerScore++, "You Lose! Rock beats Scissors") : (playerScore++, "You Win! Scissors beats Paper"));
+            }
+        }
+
+        function game(numberOfGames) {
+            for (counter = 0; counter < numberOfGames; counter++) {
+                const playerChoice = prompt("Make your choice").toUpperCase();
+                const computerChoice = getComputerChoice();
+                console.log(playRound(playerChoice, computerChoice));
+            }
+            console.log(countScore());
+        }
+
+        game(5);
+
+    </script>
+    
+</body>
+</html>
