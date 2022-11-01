@@ -8,6 +8,8 @@
 </head>
 <body>
 
+    <h1>PLAY THROUGH THE CONSOLE</h1>
+
     <script>
 
         let playerScore = 0;
@@ -50,8 +52,8 @@
             }
         }
 
-        function game(numberOfGames) {
-            for (counter = 0; counter < numberOfGames; counter++) {
+        function game(numberOfRounds) {
+            for (counter = 0; counter < numberOfRounds; counter++) {
                 const playerChoice = prompt("Make your choice").toUpperCase();
                 const computerChoice = getComputerChoice();
                 console.log(playRound(playerChoice, computerChoice));
@@ -59,7 +61,9 @@
             console.log(countScore());
         }
 
-        game(5);
+        const numberOfRounds = prompt("How many rounds?");
+
+        game(numberOfRounds);
 
     </script>
     
