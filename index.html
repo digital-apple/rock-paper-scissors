@@ -5,67 +5,52 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock, Paper & Scissors</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
 </head>
-<body>
+<body class="main">
 
-    <h1>PLAY THROUGH THE CONSOLE</h1>
+    <header class="header">
+        <div id="message" class="header-message"></div>
+        <div id="winner" class="header-message"></div>
+    </header>
 
-    <script>
+    <div class="choices-container">
+        <i id="rock" class="choices-container-item las la-hand-rock"></i>
+        <i id="paper" class="choices-container-item las la-hand-paper"></i>
+        <i id="scissors" class="choices-container-item las la-hand-scissors"></i>
+    </div>
 
-        let playerScore = 0;
-        let computerScore = 0;
-        let draws = 0;
+    <div class="counter-container">
+        <div class="counter-container-player-container">
+            <div class="counter-container-player-container-item">Player</div>
+        </div>
+        <div class="counter-container-player-score-container">
+            <div id="player-score"class="counter-container-player-score-container-item">0</div>
+        </div>
+        <div class="counter-container-separator-container">
+            <div class="counter-container-separator-container-item">x</div>
+        </div>
+        <div class="counter-container-machine-score-container">
+            <div id="machine-score" class="counter-container-machine-score-container-item">0</div>
+        </div>
+        <div class="counter-container-machine-container">
+            <div class="counter-container-machine-container-item">Machine</div>
+        </div>
+    </div>
 
-        function countScore() {
-            if (playerScore === computerScore) {
-                return "The match ended up with a draw! | Player Score: " +
-                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws ;
-            } else {
-                return playerScore > computerScore ? 
-                "The Player won the match! | Player Score: " + 
-                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws :
-                "The Computer won the match! | Player Score: " +
-                playerScore + " | Computer Score: " + computerScore + " | Draws: " + draws ;
-            }
-            playerScore = 0;
-            computerScore = 0;
-            draws = 0;
-        }
+    <div class="control-container">
+        <i id="start" class="control-container-item las la-play"></i>
+        <i id="reset" class="control-container-item las la-sync"></i>
+    </div>
 
-        function getComputerChoice() {
-            const choices = ["ROCK", "PAPER", "SCISSORS"];
-            return choices[Math.floor(Math.random() * 3)];
-        }
+    <footer class="footer">
+        <a class="footer-anchor" href="https://github.com/digital-apple">
+            <img class="footer-anchor-item" src="images/GitHub-Mark-Light-32px.png" alt="Github profile">
+        </a>
+    </footer>
 
-        function playRound(playerChoice, computerChoice) {
-
-            console.log("Player chose " + playerChoice + " ||| Computer chose " + computerChoice)
-
-            if (playerChoice === computerChoice) {
-                return (draws++, "Draw!");
-            } else if (playerChoice === "ROCK") {
-                return (computerChoice === "PAPER" ? (computerScore++, "You Lose! Paper beats Rock") : (playerScore++, "You Win! Rock beats Scissors"));
-            } else if (playerChoice === "PAPER") {
-                return (computerChoice === "SCISSORS" ? (computerScore++, "You Lose! Scissors beats Paper") : (playerScore++, "You Win! Paper beats Rock"));
-            } else {
-                return (computerChoice === "ROCK" ? (computerScore++, "You Lose! Rock beats Scissors") : (playerScore++, "You Win! Scissors beats Paper"));
-            }
-        }
-
-        function game(numberOfRounds) {
-            for (counter = 0; counter < numberOfRounds; counter++) {
-                const playerChoice = prompt("Make your choice").toUpperCase();
-                const computerChoice = getComputerChoice();
-                console.log(playRound(playerChoice, computerChoice));
-            }
-            console.log(countScore());
-        }
-
-        const numberOfRounds = prompt("How many rounds?");
-
-        game(numberOfRounds);
-
-    </script>
-    
 </body>
 </html>

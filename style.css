@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+}
+
+html {
+    background-color: #0a0a0a;
+}
+
+body {
+    height: 100vh;
+    font-family: Ubuntu, "Times New Roman", Times, Roman, Serif;
+}
+
+.main { 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5vmax;
+}
+
+.header {
+    width: 100%;
+    height: 5%;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5vmax;
+}
+
+.header-message {
+    text-align: center;
+    color: #E0E0E0;
+    text-shadow: 0 0 5px #f6c240;
+    font-size: 1.5vmax;
+}
+
+.choices-container {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.choices-container-item {
+    cursor: pointer;
+    font-size: 10vmax;
+    color: #E0E0E0;
+    transition: .25s ease-in;
+}
+
+.la-hand-rock:hover {
+    text-shadow: 0 0 10px red;
+    transition: .25s ease-out;
+}
+
+.la-hand-paper:hover {
+    text-shadow: 0 0 10px green;
+    transition: .25s ease-out;
+}
+
+.la-hand-scissors:hover {
+    text-shadow: 0 0 10px blue;
+    transition: .25s ease-out;
+}
+
+.choices-container-item:active,
+.control-container-item:active,
+.footer-anchor-item:active {
+    transition: 0s;
+    transform: scale(1.1);
+}
+
+.counter-container {
+    display: flex;
+    gap: 2vmax;
+}
+
+.counter-container-player-container,
+.counter-container-player-score-container,
+.counter-container-separator-container,
+.counter-container-machine-container,
+.counter-container-machine-score-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vmax;
+}
+
+.counter-container-player-container-item,
+.counter-container-separator-container-item,
+.counter-container-machine-container-item {
+    color: #f4e158;
+    text-shadow: 0 0 5px #f6c240;
+    font-size: 1.5vmax;
+}
+
+.counter-container-player-score-container-item,
+.counter-container-machine-score-container-item {
+    color: #E0E0E0;
+    text-shadow: 0 0 5px #f6c240;
+    font-size: 3.5vmax;
+}
+
+.control-container {
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5vmax;
+}
+
+.control-container-item {
+    cursor: pointer;
+    color: #E0E0E0;
+    text-shadow: 0 0 5px #f6c240;
+    font-size: 5vmax;
+}
+
+.footer {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-anchor-item {
+    height: 1.5vmax;
+    padding: 1vmax;
+}
